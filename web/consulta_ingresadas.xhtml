@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Jabalina App</title>
+        <h:outputStylesheet library="css" name="table-style.css"  />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{tramitesForm.getTramitesIngresadas()}" var="item"
+                             styleClass="order-table"
+                             headerClass="order-table-header"
+                             rowClasses="order-table-odd-row,order-table-even-row">
+                    <h:column>
+                        <f:facet name="header">Folio</f:facet>
+                            #{item.folio}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Folio Electronico</f:facet>
+                            #{item.folioElectronico}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Departamento</f:facet>
+                            #{item.departamento}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Tipo</f:facet>
+                            #{item.tipo}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Estado</f:facet>
+                            #{item.status}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Observaciones</f:facet>
+                            #{item.observacion}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fecha</f:facet>
+                            #{item.fecha}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Aciones</f:facet>
+                        <h:commandButton value="SUSPENDIDAS" action="#{tramitesForm.setTabla(item.folio, 'SUSPENDIDAS')}"/>
+                        <h:commandButton value="ENTREGADAS" action="#{tramitesForm.setTabla(item.folio, 'ENTREGADAS')}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

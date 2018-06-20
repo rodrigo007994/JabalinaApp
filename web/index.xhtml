@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Jabalina App</title>
+    </h:head>
+    <h:body>
+        <img src="resources/img/jabalinaApp.png" width="180px" />
+        <h:form><table border="1">
+
+                <tbody>
+                    <tr>
+                        <td><h:commandButton action="nuevo" value="Nuevo" /></td>
+                    </tr>
+                    <tr>
+                        <td>Consulta:
+                            <h:commandButton action="consulta" value="TODO" />
+                            <h:commandButton action="consulta_ingresadas" value="INGRESADAS" />
+                            <h:commandButton action="consulta_suspendidas" value="SUSPENDIDAS" />
+                            <h:commandButton action="consulta_entregadas" value="ENTREGADAS" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:commandButton action="#{tramitesForm.downloadCsv()}" value="Descarga TODO CSV" />
+                            <h:commandButton action="#{tramitesForm.downloadCsvIngresadas()}" value="Descarga INGRESADAS CSV" />
+                            <h:commandButton action="#{tramitesForm.downloadCsvSuspendidas()}" value="Descarga Suspendidas CSV" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h:commandButton action="#{tramitesForm.actualizar()}" value="Actualizar todo con Base de Datos del RPP" /></td>
+                    </tr>
+                    <tr>
+                        <td>Folio: <h:inputText value="#{tramite.folio}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Observaciones:<h:inputText value="#{tramite.observacion}"/><h:commandButton action="observacion" value="Actualizar" /></td>
+                    </tr>
+                    <tr>
+                        <th><h:commandButton action="borrar" value="Borrar" />
+                            <!--  <h:commandButton action="#########//{tramitesForm.crearNuevoDB()}" value="Crear nueva DB" /> -->
+                        </th>
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+        </h:form>
+
+    </h:body>
+</html>
+
